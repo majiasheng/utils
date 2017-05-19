@@ -1,0 +1,4 @@
+# language src_file include_file object_file
+java .java - .class
+c .c .h .o
+c++ .cpp .h .o

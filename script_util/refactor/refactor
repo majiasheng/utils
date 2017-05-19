@@ -1,0 +1,27 @@
+#!/bin/sh
+# author: Jia Sheng Ma
+# email : jiasheng.ma@yahoo.com
+
+# This script takes a directory as an argument
+# and moves its source files, header/include files
+# and object files to their corresponding directory
+# i.e.  source files are placed in src/
+#       include files are placed in include/
+#       object files are placed in build/
+USAGE="$0 DIRECTORY"
+
+# check argument
+if test $# != 1; then
+    echo USAGE
+    exit 1
+fi
+
+# validate if directory exist
+if ! test -d $1; then
+    echo "Error: $1 is not a valid directory"
+    exit 1
+fi
+
+# traverse the directory to search for files 
+echo "Travesing \"$1\"" 
+
