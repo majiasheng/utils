@@ -8,11 +8,11 @@
 # i.e.  source files are placed in src/
 #       include files are placed in include/
 #       object files are placed in build/
-USAGE="$0 DIRECTORY"
+USAGE="Usage: $0 DIRECTORY"
 
 # check argument
 if test $# != 1; then
-    echo USAGE
+    echo $USAGE
     exit 1
 fi
 
@@ -24,4 +24,13 @@ fi
 
 # traverse the directory to search for files 
 echo "Travesing \"$1\"" 
+#FILES=`find . \( ! -regex '.*/\..*' \)`
+
+FILES=`find . \( ! -regex '\./\..*' \)`
+for file in $FILES; do
+    if test -f $file; then
+        # check file type
+        echo $file
+    fi 
+done
 
