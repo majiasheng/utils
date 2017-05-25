@@ -1,0 +1,23 @@
+#!/bin/sh
+# This program adds headers of a change log to ChangeLog
+USAGE="Usage: $0 CHANGELOG [AUTHOR] [EMAIL]"
+DATE=`date +%Y-%m-%d`
+EMAIL='<EMAIL>'
+AUTHOR='AUTHOR'
+
+if test $# < 1; then
+	echo ${USAGE}
+fi
+
+if ! test -z $2; then
+	AUTHOR="$2"
+fi
+
+if ! test -z $3; then
+	EMAIL="<$3>"
+fi
+
+HEADER="${DATE} ${AUTHOR} ${EMAIL}\n"
+echo ${HEADER} | cat - $1 > temp && mv temp $1
+${EDITOR:-vi} $1
+
