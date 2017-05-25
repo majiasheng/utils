@@ -5,8 +5,9 @@ DATE=`date +%Y-%m-%d`
 EMAIL='<EMAIL>'
 AUTHOR='AUTHOR'
 
-if test $# < 1; then
+if test $# -lt 1; then
 	echo ${USAGE}
+	exit 1
 fi
 
 if ! test -z $2; then
